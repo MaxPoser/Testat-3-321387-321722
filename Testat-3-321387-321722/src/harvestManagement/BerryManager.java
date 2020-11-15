@@ -41,17 +41,8 @@ public class BerryManager {
             }   
         }   
     }
-/*
+
     public void deleteBerry() {
-        int deleteInput;
-        String input;
-        input = myScanner.next();
-        input = input.trim();
-        deleteInput = Integer. parseInt(input);
-        myBerry[deleteInput] = null;     
-    }
-    */
-        public void deleteBerry() {
         int deleteInput;
         deleteInput = Integer. parseInt(myScanner.next());
         myBerry[deleteInput] = null;     
