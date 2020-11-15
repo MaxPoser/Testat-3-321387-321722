@@ -47,8 +47,14 @@ public class BerryManager {
         String input;
         input = myScanner.next();
         input = input.trim();
+    
+        try{
         deleteInput = Integer. parseInt(input);
-        myBerry[deleteInput] = null;     
+        myBerry[deleteInput] = null; 
+        }
+            catch () {
+                
+            }
     }
     */
         public void deleteBerry() {
@@ -71,6 +77,7 @@ public class BerryManager {
     
 }
 /*
-try catch statement in delete Berry? und deleteinput.trim(); ?
+try catch statement in delete Berry?
+deleteinput.trim(); ? --> Done?
 
 */
