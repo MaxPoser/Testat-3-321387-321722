@@ -10,11 +10,11 @@ package harvestManagement;
  * @author Sina Stumpp
  */
 public class Berry {
-    int berryId;
-    String species;
-    Double weight;
-    String color;
-    String taste;
+    private final int berryId;
+    private String species;
+    private Double weight;
+    private String color;
+    private String taste;
     private static int counter = 1;
 
     public Berry(int berryId, String species, Double weight, String color, String taste) {
@@ -28,10 +28,6 @@ public class Berry {
 
     public int getBerryId() {
         return berryId;
-    }
-
-    public void setBerryId(int berryId) {
-        this.berryId = berryId;
     }
 
     public String getSpecies() {
@@ -66,6 +62,11 @@ public class Berry {
         this.taste = taste;
     }
     
+    public String toString(){
+        String berry = "";
+        berry = "Berry:" + berryId + ", "+ species + ", "+ weight + ", " + color + ", " + taste;
+        return berry;
+        
+    }    
     
 }
-//alles

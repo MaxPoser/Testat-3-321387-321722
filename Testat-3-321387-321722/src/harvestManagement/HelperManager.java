@@ -58,8 +58,8 @@ public class HelperManager {
         try {
             int index = Integer.parseInt(input)-1;
                 System.out.println(myHelper[index]);
-                displayUpdateMenu();
-                selectUpdate(index);
+                displayHelperUpdateMenu();
+                selectHelperUpdate(index);
             } catch (Exception e) {
                 System.out.println("Please choose an existing helper id.");
                 myHarvestManager.handleHelpers();
@@ -78,7 +78,7 @@ public class HelperManager {
             myHarvestManager.handleHelpers();
     }
         
-    public void displayUpdateMenu(){
+    public void displayHelperUpdateMenu(){
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n" +
             "UPDATE HELPERS MENU\n" +
             "Please select:\n" +
@@ -87,10 +87,9 @@ public class HelperManager {
             "Update gender 3\n" +
             "Back to helper menu 0\n" +
             "Please enter your choice:");
-        
     }
 
-    private void selectUpdate(int index) {
+    private void selectHelperUpdate(int index) {
         
         int menuselection = myHarvestManager.readUserInput(0,3);
         switch(menuselection) {
@@ -102,7 +101,6 @@ public class HelperManager {
     }
     }
     public String readUpdateInput(){
-        System.out.println("Please type: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
