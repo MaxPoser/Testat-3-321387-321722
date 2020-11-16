@@ -112,7 +112,6 @@ public class BerryManager {
     }
 
     private String readUpdateInput() {
-        System.out.println("Please enter new value:");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
@@ -123,7 +122,6 @@ public class BerryManager {
     }
 
     private double readDoubleUpdateInput() {
-        System.out.println("Please enter new value:");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
