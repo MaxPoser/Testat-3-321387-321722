@@ -10,26 +10,24 @@ package harvestManagement;
  * @author Sina Stumpp
  */
 public class Helper {
-    private int id;
+    private final int id;
     public String firstName;
     private String lastName;
+    private String gender;
     private String origin;
     private static int counter = 1;
 
-    public Helper(int id, String firstName, String lastName, String origin) {
+    public Helper(int id, String firstName, String lastName,String gender, String origin) {
         this.id = counter;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
         this.origin = origin;
         counter++;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -48,6 +46,14 @@ public class Helper {
         this.lastName = lastName;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getOrigin() {
         return origin;
     }
@@ -55,9 +61,14 @@ public class Helper {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+
+    public int getCounter() {
+        return counter;
+    }
+    
     public String toString(){
         String helper = "";
-        helper = "Helper:" + id + ", "+ firstName + ", "+ lastName;
+        helper = "Helper:" + id + ", "+ firstName + ", "+ lastName + ", " + gender + ", " + origin;
         return helper;
         
     }

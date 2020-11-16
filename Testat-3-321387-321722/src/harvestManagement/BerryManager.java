@@ -16,7 +16,7 @@ public class BerryManager {
     Scanner myScanner;
 
     public BerryManager() {
-        this.myScanner = new Scanner();
+        this.myScanner = new Scanner(System.in);
     }
 
 
@@ -56,9 +56,6 @@ public class BerryManager {
         
     }
 
-    private int readUserinput(int min, int max) {
-        
-    }
     
 }
 /*

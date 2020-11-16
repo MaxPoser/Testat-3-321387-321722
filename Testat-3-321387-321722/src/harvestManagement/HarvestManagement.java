@@ -12,14 +12,14 @@ import java.util.Scanner;
  * @author Sina Stumpp
  */
 public class HarvestManagement {
-    HelperManager myHelperManager = new HelperManager();
-    BerryManager myBerryManager = new BerryManager();
+    static HelperManager myHelperManager = new HelperManager();
+    static BerryManager myBerryManager = new BerryManager();
 
     public static void main(String[] args) {
         menuRun();
 
             }
-    public void displayMainMenu(){
+    public static void displayMainMenu(){
             System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)    " +
             "MAIN MENU\n" +
             "Please select:\n" +
@@ -27,16 +27,9 @@ public class HarvestManagement {
             "Managing berry species 2\n" +
             "Program exit 0\n" +
             "Please enter your choice: ");
-            Scanner inputScanner = new Scanner(System.in);
-            String input = inputScanner.next();
-            try {
-            int i = Integer.parseInt(input.trim());
-            } 
-            catch (NumberFormatException e) {
-            int i = 0;
-            } 
+
         }
-    private void menuRun(){
+    private static void menuRun(){
         while (true){
             displayMainMenu();
             int menuselection = readUserInput(0,2);
@@ -49,35 +42,44 @@ public class HarvestManagement {
         }
     }
         
-    public int readUserInput(int min, int max){
-        int answer = min-1;
-        while (answer < min || answer > max){
+    public static int readUserInput(int min, int max){
+        Scanner inputScanner = new Scanner(System.in);
+        String input = inputScanner.next();
+        try {
+            int choice = Integer.parseInt(input);
+            } catch (Exception e) {
+                menuRun();
+            }
+ // wie muss man hier bitte was beziehen?
+        int choice = Integer.parseInt(input);
+        while (choice < min || choice > max){
+            break;
         }
-        return answer;
+        return choice;
     }
-    private void handleHelpers(){
+    public static void handleHelpers(){
     myHelperManager.displayHelperMenu();
 
-    int menuselection = readUserinput(0,4);
+    int menuselection = readUserInput(0,4);
     switch(menuselection) {
-        case 4: myHelperManager.listHelpers();
-        case 3: myHelperManager.deleteHelper();
-        case 2: myHelperManager.updateHelper();
-        case 1: myHelperManager.addHelper();
-        case 0: System.exit(0);
+        case 4: myHelperManager.listHelpers();break;
+        case 3: myHelperManager.deleteHelper();break;
+        case 2: myHelperManager.updateHelper();break;
+        case 1: myHelperManager.addHelper();break;
+        case 0: menuRun();break;
         default: break;
     }         
 }
-    private void handleBerries(){
+    public static void handleBerries(){
     myBerryManager.displayBerryMenu();
 
-    int menuselection = readUserinput(0,4);
+    int menuselection = readUserInput(0,4);
     switch(menuselection) {
-        case 4: myBerryManager.listBerries();
-        case 3: myBerryManager.deleteBerry();
-        case 2: myBerryManager.updateBerry();
-        case 1: myBerryManager.addBerry();
-        case 0: System.exit(0);
+        case 4: myBerryManager.listBerries();break;
+        case 3: myBerryManager.deleteBerry();break;
+        case 2: myBerryManager.updateBerry();break;
+        case 1: myBerryManager.addBerry();break;
+        case 0: menuRun();break;
         default: break;
     }  
     }
