@@ -90,7 +90,6 @@ public class HelperManager {
     }
 
     private void selectHelperUpdate(int index) {
-        
         int menuselection = myHarvestManager.readUserInput(0,3);
         switch(menuselection) {
             case 3: myHelper[index].setGender(readUpdateInput());break;
