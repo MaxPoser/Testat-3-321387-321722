@@ -24,14 +24,14 @@ public class BerryManager {
 
 
     public void displayBerryMenu() {
-        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n" +
+        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n" +
             "MANAGING BERRY MENU\n" +
-            "Please select:\n" +
+            "Please select:\n\n" +
             "Create new berry 1\n" +
             "Update a berry 2\n" +
             "Delete a berry 3\n" +
             "Show berry list 4\n" +
-            "Back to main menu 0\n" +
+            "Back to main menu 0\n\n" +
             "Please enter your choice:");
         
     }
@@ -78,24 +78,24 @@ public class BerryManager {
 
     public void addBerry() {
         myBerry[counter] = new Berry (1,"",0.0,"","");
-            System.out.println("Enter taste: ");myBerry[counter].setTaste(readUpdateInput());
-            System.out.println("Enter weight: ");myBerry[counter].setWeight(readDoubleUpdateInput());
-            System.out.println("Enter colour: ");myBerry[counter].setColor(readUpdateInput());
             System.out.println("Enter species: ");myBerry[counter].setSpecies(readUpdateInput());
+            System.out.println("Enter colour: ");myBerry[counter].setColor(readUpdateInput());        
+            System.out.println("Enter weight: ");myBerry[counter].setWeight(readDoubleUpdateInput());    
+            System.out.println("Enter taste: ");myBerry[counter].setTaste(readUpdateInput());
             counter++;
                     
-            myHarvestManager.handleHelpers();
+            myHarvestManager.handleBerries();
     }
 
     private void displayBerryUpdateMenu() {
-        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n" +
+        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n" +
             "UPDATE BERRY MENU\n" +
-            "Please select:\n" +
+            "Please select:\n\n" +
             "Update species 1\n" +
             "Update color 2\n" +
             "Update weight 3\n" +
             "Update taste 4\n" + //NEW   
-            "Back to helper menu 0\n" +
+            "Back to helper menu 0\n\n" +
             "Please enter your choice:");
     }
 

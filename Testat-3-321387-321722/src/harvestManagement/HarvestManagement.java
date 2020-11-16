@@ -20,12 +20,12 @@ public class HarvestManagement {
 
             }
     public static void displayMainMenu(){
-            System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)    " +
+            System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n" +
             "MAIN MENU\n" +
-            "Please select:\n" +
+            "Please select:\n\n" +
             "Managing helpers 1\n" +
-            "Managing berry species 2\n" +
-            "Program exit 0\n" +
+            "Managing berries 2\n" +
+            "Program exit 0\n\n" +
             "Please enter your choice: ");
 
         }

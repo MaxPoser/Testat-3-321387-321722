@@ -17,14 +17,14 @@ public class HelperManager {
     int counter = 0;
 
         public void displayHelperMenu() {
-        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 13)\n" +
+        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 13)\n\n" +
             "MANAGING HELPERS MENU\n" +
-            "Please select:\n" +
+            "Please select:\n\n" +
             "Create new helper 1\n" +
             "Update a helper 2\n" +
             "Delete a helper 3\n" +
             "Show helper list 4\n" +
-            "Back to main menu 0\n" +
+            "Back to main menu 0\n\n" +
             "Please enter your choice:");
     }
     public void listHelpers() {
@@ -69,23 +69,23 @@ public class HelperManager {
 
     public void addHelper() {
         myHelper[counter] = new Helper (1,"","","","");
-            System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
-            System.out.println("Enter gender: ");myHelper[counter].setGender(readUpdateInput());
-            System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
             System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());
+            System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
+            System.out.println("Enter gender: ");myHelper[counter].setGender(readUpdateInput());
+            System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
             counter++;
                     
             myHarvestManager.handleHelpers();
     }
         
     public void displayHelperUpdateMenu(){
-        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n" +
+        System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n" +
             "UPDATE HELPERS MENU\n" +
-            "Please select:\n" +
+            "Please select:\n\n" +
             "Update first name 1\n" +
             "Update last name 2\n" +
             "Update gender 3\n" +
-            "Back to helper menu 0\n" +
+            "Back to helper menu 0\n\n" +
             "Please enter your choice:");
     }
 
