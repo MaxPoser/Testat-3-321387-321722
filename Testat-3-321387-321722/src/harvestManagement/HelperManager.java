@@ -29,6 +29,7 @@ public class HelperManager {
             "Back to main menu 0\n\n" +
             "Please enter your choice:");
     }
+        
     public void listHelpers() {
         System.out.println("Helper index: ");
         for (int index = 0; index < myHelper.length; index++) {
@@ -47,10 +48,8 @@ public class HelperManager {
             myHelper[index] = null;
             } catch (Exception e) {
                 System.out.println("Please choose an existing helper id.");
-                myHarvestManager.handleHelpers();
-                
-            }
-       
+                myHarvestManager.handleHelpers();    
+            } 
     }
 
     public void updateHelper() {
@@ -101,6 +100,7 @@ public class HelperManager {
             default: System.out.println("System input is ot valid. Going back to main menu.");break;
     }
     }
+    
     public String readUpdateInput(){
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
@@ -115,6 +115,7 @@ public class HelperManager {
         }
         return input;
     }
+    
     public String readGenderInput(){
         System.out.println("Please choose a gender: male, female, diverse: ");
         Scanner inputScanner = new Scanner(System.in);
@@ -131,12 +132,9 @@ public class HelperManager {
             input= inputScanner.next();
             input = input.trim();
             /* if(val ==true){
-                break; */
-            
+                break; */    
         }
-        return input;
-        
-        
+        return input;        
 }
 }
 
@@ -147,5 +145,4 @@ nach funktion ausgeführt zum passenden menu zurück, prüfen
 javadoc
 error message class
 readGenderInput while schleife, wie kommt man wieder raus
-
 */
