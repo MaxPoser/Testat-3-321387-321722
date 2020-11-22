@@ -96,14 +96,14 @@ public class HelperManager {
             case 2: myHelper[index].setLastName(readUpdateInput());break;
             case 1: myHelper[index].setFirstName(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: break;
+            default: System.out.println("System input is ot valid. Going back to main menu.");break;
     }
     }
     public String readUpdateInput(){
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
-        while (input == null || input.contains(1)) {
+        while (input == null) {
             System.out.println("Please use correct input:");
         }
         return input;    

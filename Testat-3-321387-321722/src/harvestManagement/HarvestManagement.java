@@ -37,7 +37,7 @@ public class HarvestManagement {
                 case 2: handleBerries(); break;
                 case 1: handleHelpers(); break;
                 case 0: System.exit(0); break;
-                default: break;
+                default: System.out.println("System input is not valid");break;
             }        
         }
     }
@@ -68,7 +68,7 @@ public class HarvestManagement {
         case 2: myHelperManager.updateHelper();break;
         case 1: myHelperManager.addHelper();break;
         case 0: menuRun();break;
-        default: break;
+        default: System.out.println("System input is not valid. Going back to main menu.");break;
     }         
 }
     public static void handleBerries(){
@@ -81,7 +81,7 @@ public class HarvestManagement {
         case 2: myBerryManager.updateBerry();break;
         case 1: myBerryManager.addBerry();break;
         case 0: menuRun();break;
-        default: break;
+        default: System.out.println("System input is not valid. Going back to main menu.");break;
     }  
     }
 }

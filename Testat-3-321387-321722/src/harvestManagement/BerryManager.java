@@ -94,7 +94,7 @@ public class BerryManager {
             "Update species 1\n" +
             "Update color 2\n" +
             "Update weight 3\n" +
-            "Update taste 4\n" + //NEW   
+            "Update taste 4\n" + 
             "Back to helper menu 0\n\n" +
             "Please enter your choice:");
     }
@@ -107,7 +107,7 @@ public class BerryManager {
             case 2: myBerry[index].setColor(readUpdateInput());break;
             case 1: myBerry[index].setSpecies(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: break;
+            default: System.out.println("System input is not valid. Going back to main menu.");break;
         }
     }
 
