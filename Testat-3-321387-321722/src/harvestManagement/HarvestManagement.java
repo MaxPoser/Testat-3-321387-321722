@@ -50,9 +50,10 @@ public class HarvestManagement {
             } catch (Exception e) {
                 menuRun();
             }
- // wie muss man hier bitte was beziehen?
+
         int choice = Integer.parseInt(input);
         while (choice < min || choice > max){
+            System.out.println("Please choose one of the given options:");
             break;
         }
         return choice;

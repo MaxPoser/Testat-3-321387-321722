@@ -103,7 +103,7 @@ public class HelperManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
-        while (input == null) {
+        while (input == null || input.contains(1)) {
             System.out.println("Please use correct input:");
         }
         return input;    
@@ -111,7 +111,9 @@ public class HelperManager {
 }
 
 /*
-CRUD programmieren + auf Objekte beziehen (index??)
-Scanner integrieren??
-submenu für update und welche variablen können gesetted werden
+input control
+exit function
+nach funktion ausgeführt zum passenden menu zurück
+javadoc, verschönerung regex
+error message class
 */
