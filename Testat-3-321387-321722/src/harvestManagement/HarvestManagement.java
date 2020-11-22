@@ -29,7 +29,7 @@ public class HarvestManagement {
             "Please enter your choice: ");
 
         }
-    private static void menuRun(){
+    public static void menuRun(){
         while (true){
             displayMainMenu();
             int menuselection = readUserInput(0,2);
@@ -45,6 +45,9 @@ public class HarvestManagement {
     public static int readUserInput(int min, int max){
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
+        if(input.contains("exit")){
+            menuRun();
+        }
         try {
             int choice = Integer.parseInt(input);
             } catch (Exception e) {
@@ -52,7 +55,7 @@ public class HarvestManagement {
             }
 
         int choice = Integer.parseInt(input);
-        while (choice < min || choice > max){
+        while (choice < min || choice > max ){
             System.out.println("Please choose one of the given options:");
             break;
         }
@@ -86,10 +89,5 @@ public class HarvestManagement {
     }
 }
 /*
-wo kommt scanner hin(displaymenu oder readinput?
-while schleife readInput, was muss rein?
-fehler beheben private?
-menuRun static?
-main method
 input control
 */

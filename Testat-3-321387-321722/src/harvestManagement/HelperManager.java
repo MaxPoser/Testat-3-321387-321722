@@ -6,6 +6,8 @@
 package harvestManagement;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -71,7 +73,7 @@ public class HelperManager {
         myHelper[counter] = new Helper (1,"","","","");
             System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());
             System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
-            System.out.println("Enter gender: ");myHelper[counter].setGender(readUpdateInput());
+            System.out.println("Enter gender: ");myHelper[counter].setGender(readGenderInput());
             System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
             counter++;
                     
@@ -92,7 +94,7 @@ public class HelperManager {
     private void selectHelperUpdate(int index) {
         int menuselection = myHarvestManager.readUserInput(0,3);
         switch(menuselection) {
-            case 3: myHelper[index].setGender(readUpdateInput());break;
+            case 3: myHelper[index].setGender(readGenderInput());break;
             case 2: myHelper[index].setLastName(readUpdateInput());break;
             case 1: myHelper[index].setFirstName(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
@@ -103,17 +105,47 @@ public class HelperManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
-        while (input == null) {
-            System.out.println("Please use correct input:");
+        if(input.contains("exit")){
+        myHarvestManager.menuRun();
         }
-        return input;    
+        while(input == null || input.matches("[^a-zA-Z]")){
+            System.out.println("Please correct input: ");
+            input= inputScanner.next();
+            input = input.trim();
+        }
+        return input;
     }
+    public String readGenderInput(){
+        System.out.println("Please choose a gender: male, female, diverse: ");
+        Scanner inputScanner = new Scanner(System.in);
+        String input = inputScanner.next();
+        input.trim();
+        if(input.contains("exit")){
+            myHarvestManager.menuRun();
+        }
+        Pattern pattern = Pattern.compile("[male,female,diverse]");
+        Matcher match = pattern.matcher(input);
+        boolean val = match.find();
+        while(val == false){
+            System.out.println("Please correct input: ");
+            input= inputScanner.next();
+            input = input.trim();
+            /* if(val ==true){
+                break; */
+            
+        }
+        return input;
+        
+        
+}
 }
 
 /*
-input control
-exit function
-nach funktion ausgeführt zum passenden menu zurück
-javadoc, verschönerung regex
+input control, andi
+exit function (v.a. Info einfügen, probieren bei double input)
+nach funktion ausgeführt zum passenden menu zurück, prüfen
+javadoc
 error message class
+readGenderInput while schleife, wie kommt man wieder raus
+
 */

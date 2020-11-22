@@ -33,7 +33,6 @@ public class BerryManager {
             "Show berry list 4\n" +
             "Back to main menu 0\n\n" +
             "Please enter your choice:");
-        
     }
 
     public void listBerries() {
@@ -54,10 +53,8 @@ public class BerryManager {
             myBerry[index] = null;
             } catch (Exception e) {
                 System.out.println("Please choose an existing berry id.");
-                myHarvestManager.handleBerries();
-                
-            }
-       
+                myHarvestManager.handleBerries();    
+            }   
     }
 
     public void updateBerry() {
@@ -71,8 +68,7 @@ public class BerryManager {
                 selectBerryUpdate(index);
             } catch (Exception e) {
                 System.out.println("Please choose an existing berry id.");
-                myHarvestManager.handleBerries();
-                
+                myHarvestManager.handleBerries();    
             }   
     }
 
@@ -115,8 +111,13 @@ public class BerryManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
-        while (input == null) {
-            System.out.println("Please use correct input:");
+        if(input.contains("exit")){
+            myHarvestManager.menuRun();
+        }
+        while(input == null || input.matches("[^a-zA-Z]")){
+            System.out.println("Please correct input: ");
+            input= inputScanner.next();
+            input = input.trim();
         }
         return input;  
     }
@@ -125,18 +126,23 @@ public class BerryManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
+        if(input.contains("exit")){
+            myHarvestManager.menuRun();
+        }
+       // while()){
+            System.out.print("Please enter correct weight: ");
+            input = inputScanner.next();
+            input = input.trim();
         try {
             double updateInput = Double.parseDouble(input);
         }
             catch (Exception e) {
             System.out.println("Please use correct input:");
             readDoubleUpdateInput();
-            }
-        
+            } 
+       // }
         double updateInput = Double.parseDouble(input);
-        
-        return updateInput;  
-        
+        return updateInput; 
     }
     
 }
