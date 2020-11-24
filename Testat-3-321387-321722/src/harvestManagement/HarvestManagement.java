@@ -37,7 +37,7 @@ public class HarvestManagement {
                 case 2: handleBerries(); break;
                 case 1: handleHelpers(); break;
                 case 0: System.exit(0); break;
-                default: System.out.println("System input is not valid");break;
+                default:break;
             }        
         }
     }
@@ -51,6 +51,7 @@ public class HarvestManagement {
         try {
             int choice = Integer.parseInt(input);
             } catch (Exception e) {
+                System.out.println("Please choose one of the given options:");
                 menuRun();
             }
 

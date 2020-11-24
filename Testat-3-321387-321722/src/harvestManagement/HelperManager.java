@@ -46,7 +46,7 @@ public class HelperManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            System.out.println("Changes will not be safed. You will return to the menu.");
+            System.out.println("Changes will not be saved. You will return to the menu.");
             myHarvestManager.handleHelpers();
         }
         else{
@@ -89,14 +89,19 @@ public class HelperManager {
             System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
             System.out.println("Enter gender: ");myHelper[counter].setGender(readGenderInput());
             System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
+           /* if (myHelper[counter].getFirstName() == null | myHelper[counter].getLastName() == null){
+                myHelper[counter]= null;
+                } */
+            System.out.println(myHelper[counter]);
             counter++;
-            /*
-                if (Helper.getFirstName() == null){
-                counter= counter-1;
-                myHelper[counter]=null;
-                myHarvestManager.handleHelpers();
-                }
-                */
+            
+        //if(input.contains("exit")){
+       // System.out.println("You will be brought back to the last menu.");
+        //Stop addHelper
+        //Command to break Switch
+        //selectHelperUpdate.break;
+       // myHarvestManager.handleHelpers();
+ 
             myHarvestManager.handleHelpers();
                 
     }
@@ -154,18 +159,15 @@ public class HelperManager {
             System.out.println("You will be brought back to the menu.");
             myHarvestManager.handleHelpers();
         }
-        else{
-            Pattern pattern = Pattern.compile("[male,female,diverse]");
-            Matcher match = pattern.matcher(input);
-            boolean val = match.find();
-            while(val == false){
-                System.out.println("Please correct input: ");
-                input= inputScanner.next();
-                input = input.trim();
-                /* if(val == true){
-                break; */    
-            }
+        boolean val = false;
+        while(val == false){
+            System.out.println("Please correct input: ");
+            input= inputScanner.next();
+            input = input.trim();
+        Pattern pattern = Pattern.compile("[mM]ale|[fF]emale|[dD]iverse");
+        Matcher match = pattern.matcher(input);
+        val = match.find();
         }
-        return input;        
-}
+        return input;  
+   }
 }

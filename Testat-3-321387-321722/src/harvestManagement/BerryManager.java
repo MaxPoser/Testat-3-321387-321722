@@ -129,18 +129,17 @@ public class BerryManager {
         if(input.contains("exit")){
             myHarvestManager.menuRun();
         }
-       // while()){
-            System.out.print("Please enter correct weight: ");
-            input = inputScanner.next();
-            input = input.trim();
         try {
             double updateInput = Double.parseDouble(input);
+            while (updateInput <0 || updateInput >200){
+               System.out.println("Please correct input: ");
+                updateInput= Double.parseDouble(inputScanner.next());
+            }
         }
-            catch (Exception e) {
+        catch (Exception e) {
             System.out.println("Please use correct input:");
             readDoubleUpdateInput();
-            } 
-       // }
+            }     
         double updateInput = Double.parseDouble(input);
         return updateInput; 
     }
