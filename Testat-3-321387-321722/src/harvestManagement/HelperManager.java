@@ -133,7 +133,7 @@ public class HelperManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-        System.out.println("You will be brought back to the last menu.");
+        System.out.println("You will be brought back to previous menu.");
         //Stop addHelper
         //Command to break Switch
         //selectHelperUpdate.break;
@@ -154,20 +154,24 @@ public class HelperManager {
         System.out.println("Please choose a gender: male, female, diverse: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
-        input.trim();
-        if(input.contains("exit")){
-            System.out.println("You will be brought back to the menu.");
-            myHarvestManager.handleHelpers();
-        }
         boolean val = false;
         while(val == false){
+            Pattern pattern = Pattern.compile("[mM]ale|[fF]emale|[dD]iverse");
+            Matcher match = pattern.matcher(input);
+            val = match.find();
+            if(val == true){
+                break;
+            }
             System.out.println("Please correct input: ");
-            input= inputScanner.next();
-            input = input.trim();
-        Pattern pattern = Pattern.compile("[mM]ale|[fF]emale|[dD]iverse");
-        Matcher match = pattern.matcher(input);
-        val = match.find();
+            input = inputScanner.next();
+            input.trim();
         }
+        
+        if(input.contains("exit")){
+            System.out.println("You will be brought back to previous menu.");
+            myHarvestManager.handleHelpers();
+        }
+         
         return input;  
    }
 }

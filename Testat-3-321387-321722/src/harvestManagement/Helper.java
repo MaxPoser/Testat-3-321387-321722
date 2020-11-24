@@ -6,7 +6,7 @@
 package harvestManagement;
 
 /**
- *
+ * 
  * @author Sina Stumpp
  */
 public class Helper {
@@ -16,7 +16,14 @@ public class Helper {
     private String gender;
     private String origin;
     private static int counter = 1;
-
+/**
+ * 
+ * @param id
+ * @param firstName
+ * @param lastName
+ * @param gender
+ * @param origin 
+ */
     public Helper(int id, String firstName, String lastName,String gender, String origin) {
         this.id = counter;
         this.firstName = firstName;
@@ -33,7 +40,10 @@ public class Helper {
     public String getFirstName() {
         return firstName;
     }
-
+/**
+ * 
+ * @param firstName 
+ */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -41,7 +51,10 @@ public class Helper {
     public String getLastName() {
         return lastName;
     }
-
+/**
+ * 
+ * @param lastName 
+ */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -49,7 +62,10 @@ public class Helper {
     public String getGender() {
         return gender;
     }
-
+/**
+ * 
+ * @param gender 
+ */
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -57,7 +73,10 @@ public class Helper {
     public String getOrigin() {
         return origin;
     }
-
+/**
+ *  
+ * @param origin 
+ */
     public void setOrigin(String origin) {
         this.origin = origin;
     }
