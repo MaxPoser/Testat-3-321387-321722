@@ -5,6 +5,7 @@
  */
 package harvestManagement;
 
+//import static harvestManagement.HarvestManagement.menuRun;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,47 +37,68 @@ public class HelperManager {
             if (myHelper[index] != null) {
                 System.out.println(myHelper[index]);
             }   
-        }   
+        }
+        myHarvestManager.handleHelpers();
     }
 
     public void deleteHelper() {
-        System.out.println("Please choose helper id to delete helper: ");
+        System.out.println("Please choose helper id to delete helper or enter 'exit' to return to the menu: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
-        try {
-            int index = Integer.parseInt(input)-1;
-            myHelper[index] = null;
-            } catch (Exception e) {
-                System.out.println("Please choose an existing helper id.");
-                myHarvestManager.handleHelpers();    
-            } 
+        if(input.contains("exit")){
+            System.out.println("Changes will not be safed. You will return to the menu.");
+            myHarvestManager.handleHelpers();
+        }
+        else{
+            try {
+                int index = Integer.parseInt(input)-1;
+                myHelper[index] = null;
+                } catch (Exception e) {
+                    System.out.println("Please choose an existing helper id.");
+                    myHarvestManager.handleHelpers();    
+                }
+        }    
     }
 
     public void updateHelper() {
-        System.out.println("Please choose helper id to update helper: ");
+        System.out.println("Please choose helper id to update helper or enter 'exit' to return to the menu: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
-        try {
-            int index = Integer.parseInt(input)-1;
-                System.out.println(myHelper[index]);
-                displayHelperUpdateMenu();
-                selectHelperUpdate(index);
-            } catch (Exception e) {
-                System.out.println("Please choose an existing helper id.");
-                myHarvestManager.handleHelpers();
+        if(input.contains("exit")){
+            myHarvestManager.handleHelpers();
+        }
+        else{ 
+            try {
+                int index = Integer.parseInt(input)-1;
+                    System.out.println(myHelper[index]);
+                    displayHelperUpdateMenu();
+                    selectHelperUpdate(index);
+                    myHarvestManager.handleHelpers();
+                } catch (Exception e) {
+                    System.out.println("Please choose an existing helper id.");
+                    myHarvestManager.handleHelpers();
                 
-            }   
+                }
+        }
     }
 
     public void addHelper() {
         myHelper[counter] = new Helper (1,"","","","");
+            //System.out.println("If you whish to aboard please enter 'exit' anytime.");
             System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());
             System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
             System.out.println("Enter gender: ");myHelper[counter].setGender(readGenderInput());
             System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
             counter++;
-                    
+            /*
+                if (Helper.getFirstName() == null){
+                counter= counter-1;
+                myHelper[counter]=null;
+                myHarvestManager.handleHelpers();
+                }
+                */
             myHarvestManager.handleHelpers();
+                
     }
         
     public void displayHelperUpdateMenu(){
@@ -93,11 +115,11 @@ public class HelperManager {
     private void selectHelperUpdate(int index) {
         int menuselection = myHarvestManager.readUserInput(0,3);
         switch(menuselection) {
-            case 3: myHelper[index].setGender(readGenderInput());break;
-            case 2: myHelper[index].setLastName(readUpdateInput());break;
-            case 1: myHelper[index].setFirstName(readUpdateInput());break;
+            case 3: System.out.println("Enter new gender now: ");myHelper[index].setGender(readGenderInput());break;
+            case 2: System.out.println("Enter new last name now: ");myHelper[index].setLastName(readUpdateInput());break;
+            case 1: System.out.println("Enter new first name now: ");myHelper[index].setFirstName(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: System.out.println("System input is ot valid. Going back to main menu.");break;
+            default: System.out.println("System input is not valid. Going back to main menu.");break;
     }
     }
     
@@ -106,12 +128,19 @@ public class HelperManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-        myHarvestManager.menuRun();
+        System.out.println("You will be brought back to the last menu.");
+        //Stop addHelper
+        //Command to break Switch
+        //selectHelperUpdate.break;
+        myHarvestManager.handleHelpers();
+        //System.out.println("Changes will not be safed. You will return to the menu.");
         }
-        while(input == null || input.matches("[^a-zA-Z]")){
+        else {
+            while(input == null || input.matches("[^a-zA-Z]")){
             System.out.println("Please correct input: ");
             input= inputScanner.next();
             input = input.trim();
+            }
         }
         return input;
     }
@@ -122,27 +151,21 @@ public class HelperManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-            myHarvestManager.menuRun();
+            System.out.println("You will be brought back to the menu.");
+            myHarvestManager.handleHelpers();
         }
-        Pattern pattern = Pattern.compile("[male,female,diverse]");
-        Matcher match = pattern.matcher(input);
-        boolean val = match.find();
-        while(val == false){
-            System.out.println("Please correct input: ");
-            input= inputScanner.next();
-            input = input.trim();
-            /* if(val ==true){
+        else{
+            Pattern pattern = Pattern.compile("[male,female,diverse]");
+            Matcher match = pattern.matcher(input);
+            boolean val = match.find();
+            while(val == false){
+                System.out.println("Please correct input: ");
+                input= inputScanner.next();
+                input = input.trim();
+                /* if(val == true){
                 break; */    
+            }
         }
         return input;        
 }
 }
-
-/*
-input control, andi
-exit function (v.a. Info einfügen, probieren bei double input)
-nach funktion ausgeführt zum passenden menu zurück, prüfen
-javadoc
-error message class
-readGenderInput while schleife, wie kommt man wieder raus
-*/
