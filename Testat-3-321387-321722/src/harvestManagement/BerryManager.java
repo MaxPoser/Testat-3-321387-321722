@@ -5,7 +5,6 @@
  */
 package harvestManagement;
 
-import static harvestManagement.HelperManager.myHarvestManager;
 import java.util.Scanner;
 
 /**
@@ -16,6 +15,7 @@ public class BerryManager {
     Berry myBerry[] = new Berry [1000];
     Scanner myScanner;
     static HarvestManagement myHarvestManager = new HarvestManagement();
+    static ErrorMessages em = new ErrorMessages();
     int counter = 0;
 
     public BerryManager() {
@@ -39,37 +39,51 @@ public class BerryManager {
         System.out.println("Berry index: ");
         for (int index = 0; index < myBerry.length; index++) {
             if (myBerry[index] != null) {
-                System.out.println(myBerry[index]); // Index satt 0 eingefügt
+                System.out.println(myBerry[index]);
             }   
         }   
+        myHarvestManager.handleBerries();
     }
 
     public void deleteBerry() {
         System.out.println("Please choose berry id to delete berry: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
-        try {
-            int index = Integer.parseInt(input)-1;
-            myBerry[index] = null;
-            } catch (Exception e) {
-                System.out.println("Please choose an existing berry id.");
-                myHarvestManager.handleBerries();    
-            }   
+        if(input.contains("exit")){
+            em.BackMenu();
+            myHarvestManager.handleBerries();
+        }
+        else{
+            try {
+                int index = Integer.parseInt(input)-1;
+                myBerry[index] = null;
+                } catch (Exception e) {
+                    em.ExistingID();
+                    myHarvestManager.handleBerries();    
+                }   
+        }
     }
 
     public void updateBerry() {
         System.out.println("Please choose berry id to update berry: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
-        try {
-            int index = Integer.parseInt(input)-1;
-                System.out.println(myBerry[index]);
-                displayBerryUpdateMenu();
-                selectBerryUpdate(index);
-            } catch (Exception e) {
-                System.out.println("Please choose an existing berry id.");
-                myHarvestManager.handleBerries();    
-            }   
+        if(input.contains("exit")){
+            em.BackMenu();
+            myHarvestManager.handleBerries();
+        }
+        else{
+            try {
+                int index = Integer.parseInt(input)-1;
+                    System.out.println(myBerry[index]);
+                    displayBerryUpdateMenu();
+                    selectBerryUpdate(index);
+                    myHarvestManager.handleBerries();
+                } catch (Exception e) {
+                    em.ExistingID();
+                    myHarvestManager.handleBerries();    
+                } 
+        }
     }
 
     public void addBerry() {
@@ -78,6 +92,7 @@ public class BerryManager {
             System.out.println("Enter colour: ");myBerry[counter].setColor(readUpdateInput());        
             System.out.println("Enter weight: ");myBerry[counter].setWeight(readDoubleUpdateInput());    
             System.out.println("Enter taste: ");myBerry[counter].setTaste(readUpdateInput());
+            System.out.println(myBerry[counter]);
             counter++;
                     
             myHarvestManager.handleBerries();
@@ -98,12 +113,12 @@ public class BerryManager {
     private void selectBerryUpdate(int index) {
         int menuselection = myHarvestManager.readUserInput(0,4);
         switch(menuselection) {
-            case 4: myBerry[index].setTaste(readUpdateInput());break;
-            case 3: myBerry[index].setWeight(readDoubleUpdateInput());break;
-            case 2: myBerry[index].setColor(readUpdateInput());break;
-            case 1: myBerry[index].setSpecies(readUpdateInput());break;
+            case 4: System.out.println("Please enter new taste now: ");myBerry[index].setTaste(readUpdateInput());break;
+            case 3: System.out.println("Please enter new weight now: ");myBerry[index].setWeight(readDoubleUpdateInput());break;
+            case 2: System.out.println("Please enter new color now: ");myBerry[index].setColor(readUpdateInput());break;
+            case 1: System.out.println("Please enter new species now: ");myBerry[index].setSpecies(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: System.out.println("System input is not valid. Going back to main menu.");break;
+            default: em.InputNotValid();em.BackLastMenu();break;
         }
     }
 
@@ -112,12 +127,15 @@ public class BerryManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-            myHarvestManager.menuRun();
+            em.BackLastMenu();
+            myHarvestManager.handleBerries();
         }
-        while(input == null || input.matches("[^a-zA-Z]")){
-            System.out.println("Please correct input: ");
-            input= inputScanner.next();
-            input = input.trim();
+        else{
+            while(input == null || input.matches("[^a-zA-Z]")){
+                em.CorrectInput();
+                input= inputScanner.next();
+                input = input.trim();
+            }
         }
         return input;  
     }
@@ -127,22 +145,26 @@ public class BerryManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-            myHarvestManager.menuRun();
+            em.BackLastMenu();
+            myHarvestManager.handleBerries();
         }
-        try {
-            double updateInput = Double.parseDouble(input);
-            while (updateInput <0 || updateInput >200){
-               System.out.println("Please correct input: ");
-                updateInput= Double.parseDouble(inputScanner.next());
+        else{
+            try {
+                double updateInput = Double.parseDouble(input);
+                while (updateInput <0 || updateInput >200){
+                    em.CorrectInput();
+                    updateInput= Double.parseDouble(inputScanner.next());
+                }
             }
+            catch (Exception e) {
+                em.CorrectInput();
+                readDoubleUpdateInput();
+                }
         }
-        catch (Exception e) {
-            System.out.println("Please use correct input:");
-            readDoubleUpdateInput();
-            }     
         double updateInput = Double.parseDouble(input);
         return updateInput; 
     }
     
 }
 
+// EXIT function in addBerry

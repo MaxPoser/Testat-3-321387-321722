@@ -5,7 +5,6 @@
  */
 package harvestManagement;
 
-//import static harvestManagement.HarvestManagement.menuRun;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +16,7 @@ import java.util.regex.Pattern;
 public class HelperManager {
     Helper myHelper[] = new Helper[1000];
     static HarvestManagement myHarvestManager = new HarvestManagement();
+    static ErrorMessages em = new ErrorMessages();
     int counter = 0;
 
         public void displayHelperMenu() {
@@ -46,7 +46,7 @@ public class HelperManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            System.out.println("Changes will not be saved. You will return to the menu.");
+            em.BackMenu();
             myHarvestManager.handleHelpers();
         }
         else{
@@ -54,7 +54,7 @@ public class HelperManager {
                 int index = Integer.parseInt(input)-1;
                 myHelper[index] = null;
                 } catch (Exception e) {
-                    System.out.println("Please choose an existing helper id.");
+                    em.ExistingID();
                     myHarvestManager.handleHelpers();    
                 }
         }    
@@ -65,6 +65,7 @@ public class HelperManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
+            em.BackMenu();
             myHarvestManager.handleHelpers();
         }
         else{ 
@@ -75,7 +76,7 @@ public class HelperManager {
                     selectHelperUpdate(index);
                     myHarvestManager.handleHelpers();
                 } catch (Exception e) {
-                    System.out.println("Please choose an existing helper id.");
+                    em.ExistingID();
                     myHarvestManager.handleHelpers();
                 
                 }
@@ -120,11 +121,11 @@ public class HelperManager {
     private void selectHelperUpdate(int index) {
         int menuselection = myHarvestManager.readUserInput(0,3);
         switch(menuselection) {
-            case 3: System.out.println("Enter new gender now: ");myHelper[index].setGender(readGenderInput());break;
-            case 2: System.out.println("Enter new last name now: ");myHelper[index].setLastName(readUpdateInput());break;
-            case 1: System.out.println("Enter new first name now: ");myHelper[index].setFirstName(readUpdateInput());break;
+            case 3: System.out.println("Please enter new gender now: ");myHelper[index].setGender(readGenderInput());break;
+            case 2: System.out.println("Please enter new last name now: ");myHelper[index].setLastName(readUpdateInput());break;
+            case 1: System.out.println("Please enter new first name now: ");myHelper[index].setFirstName(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: System.out.println("System input is not valid. Going back to main menu.");break;
+            default: em.InputNotValid();em.BackLastMenu();break;
     }
     }
     
@@ -133,7 +134,7 @@ public class HelperManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-        System.out.println("You will be brought back to previous menu.");
+        em.BackLastMenu();
         //Stop addHelper
         //Command to break Switch
         //selectHelperUpdate.break;
@@ -142,7 +143,7 @@ public class HelperManager {
         }
         else {
             while(input == null || input.matches("[^a-zA-Z]")){
-            System.out.println("Please correct input: ");
+            em.CorrectInput();
             input= inputScanner.next();
             input = input.trim();
             }
@@ -162,16 +163,18 @@ public class HelperManager {
             if(val == true){
                 break;
             }
-            System.out.println("Please correct input: ");
+            em.CorrectInput();
             input = inputScanner.next();
             input.trim();
         }
         
         if(input.contains("exit")){
-            System.out.println("You will be brought back to previous menu.");
+            em.BackLastMenu();
             myHarvestManager.handleHelpers();
         }
          
         return input;  
    }
 }
+
+// EXIT function in addHelper

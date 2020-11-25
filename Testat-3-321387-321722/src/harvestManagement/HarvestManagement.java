@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class HarvestManagement {
     static HelperManager myHelperManager = new HelperManager();
     static BerryManager myBerryManager = new BerryManager();
+    static ErrorMessages em = new ErrorMessages();
+
 
     public static void main(String[] args) {
         menuRun();
@@ -51,14 +53,14 @@ public class HarvestManagement {
         try {
             int choice = Integer.parseInt(input);
             } catch (Exception e) {
-                System.out.println("Please choose one of the given options:");
+                em.ChoseOptions();
                 menuRun();
             }
 
         int choice = Integer.parseInt(input);
         while (choice < min || choice > max ){
-            System.out.println("Please choose one of the given options:");
-            break;
+        em.ChoseOptions();            
+        break;
         }
         return choice;
     }
@@ -72,7 +74,7 @@ public class HarvestManagement {
         case 2: myHelperManager.updateHelper();break;
         case 1: myHelperManager.addHelper();break;
         case 0: menuRun();break;
-        default: System.out.println("System input is not valid. Going back to main menu.");break;
+        default: em.InputNotValid();em.BackLastMenu();break;
     }         
 }
     public static void handleBerries(){
@@ -85,7 +87,7 @@ public class HarvestManagement {
         case 2: myBerryManager.updateBerry();break;
         case 1: myBerryManager.addBerry();break;
         case 0: menuRun();break;
-        default: System.out.println("System input is not valid. Going back to main menu.");break;
+        default: em.InputNotValid();em.BackLastMenu();break;
     }  
     }
 }
