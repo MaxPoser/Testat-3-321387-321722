@@ -6,25 +6,29 @@
 package harvestManagement;
 
 /**
- * 
+ * Initialization of sensetive variables/data for helper.
+ *
  * @author Sina Stumpp
  */
 public class Helper {
+
     private final int id;
-    public String firstName;
+    private String firstName;
     private String lastName;
     private String gender;
     private String origin;
     private static int counter = 1;
-/**
- * 
- * @param id
- * @param firstName
- * @param lastName
- * @param gender
- * @param origin 
- */
-    public Helper(int id, String firstName, String lastName,String gender, String origin) {
+
+    /**
+     * Compiling confidental variables to biuld connection to getter/setter.
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param gender
+     * @param origin
+     */
+    public Helper(int id, String firstName, String lastName, String gender, String origin) {
         this.id = counter;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,65 +37,107 @@ public class Helper {
         counter++;
     }
 
+    /**
+     * returns ID of helper.
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * returns first name of helper.
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
-/**
- * 
- * @param firstName 
- */
+
+    /**
+     * sets first name of helper.
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-/**
- * returns last name of helper
- * @return 
- */
+
+    /**
+     * returns last name of helper.
+     *
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
-/**
- * 
- * @param lastName 
- */
+
+    /**
+     * sets last name of helper.
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * returns gender of helper.
+     *
+     * @return
+     */
     public String getGender() {
         return gender;
     }
-/**
- * 
- * @param gender 
- */
+
+    /**
+     * sets gender of helper.
+     *
+     * @param gender
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     * returns origin of helper.
+     *
+     * @return
+     */
     public String getOrigin() {
         return origin;
     }
-/**
- *  
- * @param origin 
- */
+
+    /**
+     * sets origin of helper.
+     *
+     * @param origin
+     */
     public void setOrigin(String origin) {
         this.origin = origin;
     }
 
+    /**
+     * returns current counter value.
+     *
+     * @return
+     */
     public int getCounter() {
         return counter;
     }
-    
-    public String toString(){
+
+    /**
+     *
+     * @return
+     */
+    public String toString() {
         String helper = "";
-        helper = "Helper:" + id + ", "+ firstName + ", "+ lastName + ", " + gender + ", " + origin;
+        helper = "Helper:" + id + ", " + firstName + ", " + lastName + ", " + gender + ", " + origin;
         return helper;
-        
+
     }
 }
+//toString is never used --> löschen?
+//Wenn nein --> Javadoc für toString
+//getCounter notwendig?

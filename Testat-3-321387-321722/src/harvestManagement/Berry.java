@@ -6,10 +6,12 @@
 package harvestManagement;
 
 /**
+ * Initialization of sensetive variables/data for helper.
  *
  * @author Sina Stumpp
  */
 public class Berry {
+
     private final int berryId;
     private String species;
     private Double weight;
@@ -17,6 +19,15 @@ public class Berry {
     private String taste;
     private static int counter = 1;
 
+    /**
+     * Compiling confidental variables to biuld connection to getter/setter.
+     *
+     * @param berryId
+     * @param species
+     * @param weight
+     * @param color
+     * @param taste
+     */
     public Berry(int berryId, String species, Double weight, String color, String taste) {
         this.berryId = counter;
         this.species = species;
@@ -26,47 +37,100 @@ public class Berry {
         counter++;
     }
 
+    /**
+     * returns ID of berry.
+     *
+     * @return
+     */
     public int getBerryId() {
         return berryId;
     }
 
+    /**
+     * returns name of species.
+     *
+     * @return
+     */
     public String getSpecies() {
         return species;
     }
 
+    /**
+     * sets name of species.
+     *
+     * @param species
+     */
     public void setSpecies(String species) {
         this.species = species;
     }
 
+    /**
+     * returns weight of berry.
+     *
+     * @return
+     */
     public Double getWeight() {
         return weight;
     }
 
+    /**
+     * sets weight of berry.
+     *
+     * @param weight
+     */
     public void setWeight(Double weight) {
         this.weight = weight;
     }
 
+    /**
+     * returns color of berry.
+     *
+     * @return
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     * sets color of berry.
+     *
+     * @param color
+     */
     public void setColor(String color) {
         this.color = color;
     }
 
+    /**
+     * returns taste of berry.
+     *
+     * @return
+     */
     public String getTaste() {
         return taste;
     }
 
+    /**
+     * sets taste of berry.
+     *
+     * @param taste
+     */
     public void setTaste(String taste) {
         this.taste = taste;
     }
-    
-    public String toString(){
+
+    /**
+     *
+     * @return
+     */
+    public String toString() {
         String berry = "";
-        berry = "Berry:" + berryId + ", "+ species + ", "+ weight + ", " + color + ", " + taste;
+        berry = "Berry:" + berryId + ", " + species + ", " + weight + ", " + color + ", " + taste;
         return berry;
-        
-    }    
-    
+
+    }
+
 }
+
+//toString is never used --> löschen?
+//Wenn nein --> Javadoc für toString
+//getCounter benötigt? --> Wird im Helper verwendet.

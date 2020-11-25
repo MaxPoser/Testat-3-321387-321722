@@ -6,42 +6,99 @@
 package harvestManagement;
 
 /**
+ * collection of error messages to be used in all other classes in need.
  *
  * @author maxpo
  */
 public class ErrorMessages {
-    /**
-     * states that user is brought back to menu
+
+    /*
+    private String backMenu = ("Changes will not be saved. You will return to the menu. ");
+    private String existingID = ("Please choose an existing id. ");
+    private String backLastMenu = ("You will be brought back to the last menu. ");
+    private String inputNotValid = ("System input is not valid. ");
+    private String correctInput = ("Please correct input: ");
+    private String chooseOptions = ("Please choose one of the given options. ");
+
+    public ErrorMessages(String backMenu, String existingID, String backLastMenu, String inputNotValid, String correctInput, String chooseOptions) {//Hier stimmt was nicht. Muss hier jede Variable neu compiled werden?
+        this.backMenu = backMenu;
+        this.existingID = existingID;
+        this.backLastMenu = backLastMenu;
+        this.inputNotValid = inputNotValid;
+        this.correctInput = correctInput;
+        this.chooseOptions = chooseOptions;
+    }
+
+    public void getBackMenu() {
+        System.out.println(backMenu); //Print out hier?
+    }
+
+    public String getExistingID() {
+        return existingID;
+    }
+
+    public String getBackLastMenu() {
+        return backLastMenu;
+    }
+
+    public String getInputNotValid() {
+        return inputNotValid;
+    }
+
+    public String getCorrectInput() {
+        return correctInput;
+    }
+
+    public String getChooseOptions() {
+        return chooseOptions;
+    }
+    
+    
+    
      */
-    public void backMenu(){
+    /**
+     * states that user is brought back to menu.
+     */
+    public void backMenu() {
         System.out.println("Changes will not be saved. You will return to the menu. ");
     }
-    
-    public void existingID(){
+
+    /**
+     * states that user should choose an ID which already exists.
+     */
+    public void existingID() {
         System.out.println("Please choose an existing id. ");
     }
-    
-    public void backLastMenu(){
+
+    /**
+     * Informs the user that he will be brought back to the previous menu.
+     */
+    public void backLastMenu() {
         System.out.println("You will be brought back to the last menu. ");
     }
-    
-    public void inputNotValid(){
+
+    /**
+     * Informs the user that the entered input is invalid.
+     */
+    public void inputNotValid() {
         System.out.println("System input is not valid. ");
     }
-    
-    public void correctInput(){
+
+    /**
+     * Requests the user to correct the input.
+     */
+    public void correctInput() {
         System.out.println("Please correct input: ");
     }
-    
-    public void chooseOptions(){
+
+    /**
+     * Requests the user to choose one of the given opstions.
+     */
+    public void chooseOptions() {
         System.out.println("Please choose one of the given options. ");
     }
-            
-             
-            
-/*
-            
-    ALLES PRIVATE MIT GETTER UND SETTER??
+
+    /*
             
             
     Helper Manager:
@@ -61,5 +118,5 @@ public class ErrorMessages {
     Please choose one of the given options.
     System input is not valid. Going back to main menu.
 
-    */
+     */
 }
