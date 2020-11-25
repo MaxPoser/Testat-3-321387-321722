@@ -50,7 +50,7 @@ public class BerryManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            em.BackMenu();
+            em.backMenu();
             myHarvestManager.handleBerries();
         }
         else{
@@ -58,7 +58,7 @@ public class BerryManager {
                 int index = Integer.parseInt(input)-1;
                 myBerry[index] = null;
                 } catch (Exception e) {
-                    em.ExistingID();
+                    em.existingID();
                     myHarvestManager.handleBerries();    
                 }   
         }
@@ -69,7 +69,7 @@ public class BerryManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            em.BackMenu();
+            em.backMenu();
             myHarvestManager.handleBerries();
         }
         else{
@@ -80,7 +80,7 @@ public class BerryManager {
                     selectBerryUpdate(index);
                     myHarvestManager.handleBerries();
                 } catch (Exception e) {
-                    em.ExistingID();
+                    em.existingID();
                     myHarvestManager.handleBerries();    
                 } 
         }
@@ -89,10 +89,10 @@ public class BerryManager {
     public void addBerry() {
         myBerry[counter] = new Berry (1,"",0.0,"","");
         
-            System.out.println("Enter species: ");myBerry[counter].setSpecies(readUpdateInput());
-            System.out.println("Enter colour: ");myBerry[counter].setColor(readUpdateInput());        
+            System.out.println("Enter species: ");myBerry[counter].setSpecies(readAddInput());
+            System.out.println("Enter colour: ");myBerry[counter].setColor(readAddInput());        
             System.out.println("Enter weight: ");myBerry[counter].setWeight(readDoubleUpdateInput());    
-            System.out.println("Enter taste: ");myBerry[counter].setTaste(readUpdateInput());
+            System.out.println("Enter taste: ");myBerry[counter].setTaste(readAddInput());
             System.out.println(myBerry[counter]);
             counter++;
                     
@@ -119,7 +119,7 @@ public class BerryManager {
             case 2: System.out.println("Please enter new color now: ");myBerry[index].setColor(readUpdateInput());break;
             case 1: System.out.println("Please enter new species now: ");myBerry[index].setSpecies(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: em.InputNotValid();em.BackLastMenu();break;
+            default: em.inputNotValid();em.backLastMenu();break;
         }
     }
 
@@ -128,12 +128,12 @@ public class BerryManager {
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-            em.BackLastMenu();
+            em.backLastMenu();
             myHarvestManager.handleBerries();
         }
         else{
             while(input == null || input.matches("[^a-zA-Z]")){
-                em.CorrectInput();
+                em.correctInput();
                 input= inputScanner.next();
                 input = input.trim();
             }
@@ -145,27 +145,35 @@ public class BerryManager {
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
-        if(input.contains("exit")){
-            em.BackLastMenu();
-            myHarvestManager.handleBerries();
-        }
-        else{
-            try {
-                double updateInput = Double.parseDouble(input);
-                while (updateInput <0 || updateInput >200){
-                    em.CorrectInput();
-                    updateInput= Double.parseDouble(inputScanner.next());
-                }
+        
+        try {
+            double updateInput = Double.parseDouble(input);
+            while (updateInput <0 || updateInput >200){
+                em.correctInput();
+                updateInput= Double.parseDouble(inputScanner.next());
             }
-            catch (Exception e) {
-                em.CorrectInput();
-                readDoubleUpdateInput();
-                }
         }
+        catch (Exception e) {
+            em.correctInput();
+            readDoubleUpdateInput();
+        }
+        
         double updateInput = Double.parseDouble(input);
         return updateInput; 
+    }
+    private String readAddInput() {
+        Scanner inputScanner = new Scanner(System.in);
+        String input = inputScanner.next();
+        input.trim();
+        
+        while(input == null || input.matches("[^a-zA-Z]")){
+        em.correctInput();
+        input= inputScanner.next();
+        input = input.trim();
+        }
+        
+        return input;  
     }
     
 }
 
-// EXIT function in addBerry

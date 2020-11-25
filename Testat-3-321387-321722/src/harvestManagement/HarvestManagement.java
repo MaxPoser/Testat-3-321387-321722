@@ -16,11 +16,19 @@ public class HarvestManagement {
     static BerryManager myBerryManager = new BerryManager();
     static ErrorMessages em = new ErrorMessages();
 
+    public HarvestManagement() {
+    }
 
+    /**
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         menuRun();
-
             }
+    /**
+     * 
+     */
     public static void displayMainMenu(){
             System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n" +
             "MAIN MENU\n" +
@@ -31,6 +39,9 @@ public class HarvestManagement {
             "Please enter your choice: ");
 
         }
+    /**
+     * 
+     */
     public static void menuRun(){
         while (true){
             displayMainMenu();
@@ -43,7 +54,12 @@ public class HarvestManagement {
             }        
         }
     }
-        
+    /**
+     * 
+     * @param min
+     * @param max
+     * @return 
+     */    
     public static int readUserInput(int min, int max){
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
@@ -53,17 +69,20 @@ public class HarvestManagement {
         try {
             int choice = Integer.parseInt(input);
             } catch (Exception e) {
-                em.ChoseOptions();
+                em.chooseOptions();
                 menuRun();
             }
 
         int choice = Integer.parseInt(input);
         while (choice < min || choice > max ){
-        em.ChoseOptions();            
+        em.chooseOptions();            
         break;
         }
         return choice;
     }
+    /**
+     * 
+     */
     public static void handleHelpers(){
     myHelperManager.displayHelperMenu();
 
@@ -74,9 +93,12 @@ public class HarvestManagement {
         case 2: myHelperManager.updateHelper();break;
         case 1: myHelperManager.addHelper();break;
         case 0: menuRun();break;
-        default: em.InputNotValid();em.BackLastMenu();break;
+        default: em.inputNotValid();em.backLastMenu();break;
     }         
 }
+    /**
+     * 
+     */
     public static void handleBerries(){
     myBerryManager.displayBerryMenu();
 
@@ -87,7 +109,7 @@ public class HarvestManagement {
         case 2: myBerryManager.updateBerry();break;
         case 1: myBerryManager.addBerry();break;
         case 0: menuRun();break;
-        default: em.InputNotValid();em.BackLastMenu();break;
+        default: em.inputNotValid();em.backLastMenu();break;
     }  
     }
 }

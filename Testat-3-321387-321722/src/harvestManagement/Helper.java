@@ -47,7 +47,10 @@ public class Helper {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+/**
+ * returns last name of helper
+ * @return 
+ */
     public String getLastName() {
         return lastName;
     }

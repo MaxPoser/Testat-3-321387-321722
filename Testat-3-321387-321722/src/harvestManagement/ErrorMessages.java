@@ -10,32 +10,34 @@ package harvestManagement;
  * @author maxpo
  */
 public class ErrorMessages {
-    
-    public void BackMenu(){
+    /**
+     * states that user is brought back to menu
+     */
+    public void backMenu(){
         System.out.println("Changes will not be saved. You will return to the menu. ");
     }
     
-    public void ExistingID(){
+    public void existingID(){
         System.out.println("Please choose an existing id. ");
     }
     
-    public void BackLastMenu(){
+    public void backLastMenu(){
         System.out.println("You will be brought back to the last menu. ");
     }
     
-    public void InputNotValid(){
+    public void inputNotValid(){
         System.out.println("System input is not valid. ");
     }
     
-    public void CorrectInput(){
-        System.out.println("Please coorect input: ");
+    public void correctInput(){
+        System.out.println("Please correct input: ");
     }
     
-    public void ChoseOptions(){
+    public void chooseOptions(){
         System.out.println("Please choose one of the given options. ");
     }
             
-            
+             
             
 /*
             

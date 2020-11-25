@@ -18,7 +18,9 @@ public class HelperManager {
     static HarvestManagement myHarvestManager = new HarvestManagement();
     static ErrorMessages em = new ErrorMessages();
     int counter = 0;
-
+        /**
+         * 
+         */
         public void displayHelperMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 13)\n\n" +
             "MANAGING HELPERS MENU\n" +
@@ -30,7 +32,9 @@ public class HelperManager {
             "Back to main menu 0\n\n" +
             "Please enter your choice:");
     }
-        
+    /**
+     * 
+     */    
     public void listHelpers() {
         System.out.println("Helper index: ");
         for (int index = 0; index < myHelper.length; index++) {
@@ -40,13 +44,15 @@ public class HelperManager {
         }
         myHarvestManager.handleHelpers();
     }
-
+    /**
+     * 
+     */
     public void deleteHelper() {
         System.out.println("Please choose helper id to delete helper or enter 'exit' to return to the menu: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            em.BackMenu();
+            em.backMenu();
             myHarvestManager.handleHelpers();
         }
         else{
@@ -54,18 +60,20 @@ public class HelperManager {
                 int index = Integer.parseInt(input)-1;
                 myHelper[index] = null;
                 } catch (Exception e) {
-                    em.ExistingID();
+                    em.existingID();
                     myHarvestManager.handleHelpers();    
                 }
         }    
     }
-
+    /**
+     * 
+     */
     public void updateHelper() {
         System.out.println("Please choose helper id to update helper or enter 'exit' to return to the menu: ");
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         if(input.contains("exit")){
-            em.BackMenu();
+            em.backMenu();
             myHarvestManager.handleHelpers();
         }
         else{ 
@@ -76,38 +84,27 @@ public class HelperManager {
                     selectHelperUpdate(index);
                     myHarvestManager.handleHelpers();
                 } catch (Exception e) {
-                    em.ExistingID();
+                    em.existingID();
                     myHarvestManager.handleHelpers();
                 
                 }
         }
     }
-
+    /**
+     * 
+     */
     public void addHelper() {
         myHelper[counter] = new Helper (1,"","","","");
-        int i = 1;
-        while(i==1){
-            //System.out.println("If you whish to aboard please enter 'exit' anytime.");
             
-            System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());       
-            System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
+            System.out.println("Enter first name: ");myHelper[counter].setFirstName(readAddInput());
+            System.out.println("Enter last name: ");myHelper[counter].setLastName(readAddInput());
             System.out.println("Enter gender: ");myHelper[counter].setGender(readGenderInput());
-            System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
-           /* if (myHelper[counter].getFirstName() == null | myHelper[counter].getLastName() == null){
-                myHelper[counter]= null;
-                } */
-            i++;
+            System.out.println("Enter origin: ");myHelper[counter].setOrigin(readAddInput());
+
             System.out.println(myHelper[counter]);
-            counter++;}
-            
-        //if(input.contains("exit")){
-       // System.out.println("You will be brought back to the last menu.");
-        //Stop addHelper
-        //Command to break Switch
-        //selectHelperUpdate.break;
-       // myHarvestManager.handleHelpers();
- 
-            myHarvestManager.handleHelpers();
+            counter++;
+
+        myHarvestManager.handleHelpers();
                 
     }
         
@@ -129,16 +126,19 @@ public class HelperManager {
             case 2: System.out.println("Please enter new last name now: ");myHelper[index].setLastName(readUpdateInput());break;
             case 1: System.out.println("Please enter new first name now: ");myHelper[index].setFirstName(readUpdateInput());break;
             case 0: myHarvestManager.handleHelpers();break;
-            default: em.InputNotValid();em.BackLastMenu();break;
+            default: em.inputNotValid();em.backLastMenu();break;
     }
     }
-    
+    /**
+     * reads user input and controls it
+     * @return 
+     */
     public String readUpdateInput(){
         Scanner inputScanner = new Scanner(System.in);
         String input = inputScanner.next();
         input.trim();
         if(input.contains("exit")){
-        em.BackLastMenu();
+        em.backLastMenu();
         //Stop addHelper
         //Command to break Switch
         //selectHelperUpdate.break;
@@ -147,11 +147,25 @@ public class HelperManager {
         }
         else {
             while(input == null || input.matches("[^a-zA-Z]")){
-            em.CorrectInput();
+            em.correctInput();
             input= inputScanner.next();
             input = input.trim();
             }
         }
+        return input;
+    }
+    public String readAddInput(){
+        Scanner inputScanner = new Scanner(System.in);
+        String input = inputScanner.next();
+        input.trim();
+        
+        
+        while(input == null || input.matches("[^a-zA-Z]")){
+            em.correctInput();
+            input= inputScanner.next();
+            input = input.trim();
+        }
+        
         return input;
     }
     
@@ -167,18 +181,17 @@ public class HelperManager {
             if(val == true){
                 break;
             }
-            em.CorrectInput();
+            em.correctInput();
             input = inputScanner.next();
             input.trim();
         }
-        
-        if(input.contains("exit")){
-            em.BackLastMenu();
-            myHarvestManager.handleHelpers();
-        }
-         
+                 
         return input;  
    }
+    public static boolean isNullOrEmpty(String str) {
+        if(str != null && !str.isEmpty())
+            return false;
+        return true;
+    }
 }
 
-// EXIT function in addHelper
