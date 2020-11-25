@@ -85,16 +85,20 @@ public class HelperManager {
 
     public void addHelper() {
         myHelper[counter] = new Helper (1,"","","","");
+        int i = 1;
+        while(i==1){
             //System.out.println("If you whish to aboard please enter 'exit' anytime.");
-            System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());
+            
+            System.out.println("Enter first name: ");myHelper[counter].setFirstName(readUpdateInput());       
             System.out.println("Enter last name: ");myHelper[counter].setLastName(readUpdateInput());
             System.out.println("Enter gender: ");myHelper[counter].setGender(readGenderInput());
             System.out.println("Enter origin: ");myHelper[counter].setOrigin(readUpdateInput());
            /* if (myHelper[counter].getFirstName() == null | myHelper[counter].getLastName() == null){
                 myHelper[counter]= null;
                 } */
+            i++;
             System.out.println(myHelper[counter]);
-            counter++;
+            counter++;}
             
         //if(input.contains("exit")){
        // System.out.println("You will be brought back to the last menu.");

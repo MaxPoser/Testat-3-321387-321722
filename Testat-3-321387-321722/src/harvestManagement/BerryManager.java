@@ -88,6 +88,7 @@ public class BerryManager {
 
     public void addBerry() {
         myBerry[counter] = new Berry (1,"",0.0,"","");
+        
             System.out.println("Enter species: ");myBerry[counter].setSpecies(readUpdateInput());
             System.out.println("Enter colour: ");myBerry[counter].setColor(readUpdateInput());        
             System.out.println("Enter weight: ");myBerry[counter].setWeight(readDoubleUpdateInput());    
