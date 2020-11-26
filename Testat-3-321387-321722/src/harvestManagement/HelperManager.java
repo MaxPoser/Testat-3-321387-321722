@@ -76,6 +76,7 @@ public class HelperManager {
                 myHarvestManager.handleHelpers();
             }
         }
+        myHarvestManager.handleHelpers();
     }
 
     /**

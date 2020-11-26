@@ -73,6 +73,7 @@ public class BerryManager {
                 myHarvestManager.handleBerries();
             }
         }
+        myHarvestManager.handleBerries();
     }
 
     /**
@@ -188,7 +189,7 @@ public class BerryManager {
             em.backLastMenu();
             myHarvestManager.handleBerries();
         } else {
-            while (input == null || input.matches("[^a-zA-Z0-9]*")|| input.matches(".*\\d.*") ) {
+            while (input == null || input.matches("[^a-zA-Z0-9]*") || input.matches(".*\\d.*")) {
                 em.correctInput();
                 input = inputScanner.next();
                 input = input.trim();
@@ -235,7 +236,7 @@ public class BerryManager {
         String input = inputScanner.next();
         input.trim();
 
-        while (input == null || input.matches("[^a-zA-Z0-9]*")|| input.matches(".*\\d.*")) {
+        while (input == null || input.matches("[^a-zA-Z0-9]*") || input.matches(".*\\d.*")) {
             em.correctInput();
             input = inputScanner.next();
             input = input.trim();
