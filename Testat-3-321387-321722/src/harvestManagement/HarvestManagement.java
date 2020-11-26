@@ -21,7 +21,7 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * main method that starts the programme
      * @param args
      */
     public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * displays main menu
      */
     public static void displayMainMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n"
@@ -43,7 +43,7 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * 
      */
     public static void menuRun() {
         while (true) {
@@ -66,7 +66,9 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * gets and checks user input
+     * if input cannot be converted into Integer or Integer is smaller or greater than set values,
+     * user is requested to correct input and main menu is displayed again
      * @param min
      * @param max
      * @return
@@ -93,7 +95,8 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * shows full handleHelpers menu
+     * processes correct user input and forwards to choice made
      */
     public static void handleHelpers() {
         myHelperManager.displayHelperMenu();
@@ -123,7 +126,8 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * shows full handleBeriies menu
+     * processes correct user input and forwards to choice made
      */
     public static void handleBerries() {
         myBerryManager.displayBerryMenu();

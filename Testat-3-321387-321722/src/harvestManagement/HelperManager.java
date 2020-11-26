@@ -15,13 +15,22 @@ import java.util.regex.Pattern;
  */
 public class HelperManager {
 
+    public HelperManager() {
+        HarvestManagement myHarvestManager;
+        ErrorMessages em;
+        Helper myHelper[];
+        counter = 0;
+        
+    }
+    
+
     Helper myHelper[] = new Helper[1000];
     static HarvestManagement myHarvestManager = new HarvestManagement();
     static ErrorMessages em = new ErrorMessages();
-    int counter = 0;
+    int counter;
 
     /**
-     *
+     * displays helper menu
      */
     public void displayHelperMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 13)\n\n"
@@ -36,7 +45,7 @@ public class HelperManager {
     }
 
     /**
-     *
+     * lists all existing Helper objects
      */
     public void listHelpers() {
         System.out.println("Helper index: ");
@@ -49,7 +58,8 @@ public class HelperManager {
     }
 
     /**
-     *
+     * asks user to choose helper through id who is supposed to be deleted
+     * deletes this helper 
      */
     public void deleteHelper() {
         System.out.println("Please choose helper id to delete helper or enter 'exit' to return to the menu: ");
@@ -70,7 +80,7 @@ public class HelperManager {
     }
 
     /**
-     *
+     * asks user to choose helper through id who is supposed to be updated
      */
     public void updateHelper() {
         System.out.println("Please choose helper id to update helper or enter 'exit' to return to the menu: ");
@@ -95,7 +105,8 @@ public class HelperManager {
     }
 
     /**
-     *
+     * creates a new helper through user input (first name, last name, gender, origin)
+     * id is configured automatically
      */
     public void addHelper() {
         myHelper[counter] = new Helper(1, "", "", "", "");
@@ -117,7 +128,7 @@ public class HelperManager {
     }
 
     /**
-     *
+     * displays choices user can make to update helper
      */
     public void displayHelperUpdateMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n"
@@ -131,7 +142,8 @@ public class HelperManager {
     }
 
     /**
-     *
+     * shows full selectHelperUpdate menu
+     * processes correct user input and forwards to choice made
      * @param index
      */
     private void selectHelperUpdate(int index) {
@@ -161,6 +173,7 @@ public class HelperManager {
 
     /**
      * reads user input and controls it
+     * if input equals null or is no letter, user is asked to correct input
      *
      * @return
      */
@@ -182,7 +195,8 @@ public class HelperManager {
     }
 
     /**
-     *
+     * reads user input and controls it
+     * if input equals null or is no letter, user is asked to correct input
      * @return
      */
     public String readAddInput() {
@@ -200,7 +214,9 @@ public class HelperManager {
     }
 
     /**
-     *
+     * reads user input and controls it
+     * if input does not equal [Mm]ale,[Ff]emale, [Dd]iverse,
+     * user is asked to correct input
      * @return
      */
     public String readGenderInput() {

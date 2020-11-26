@@ -13,18 +13,22 @@ import java.util.Scanner;
  */
 public class BerryManager {
 
+    public BerryManager() {
+        Berry myBerry[];
+        HarvestManagement myHarvestManager;
+        ErrorMessages em;
+        counter = 0;    
+    }
+    
+
     Berry myBerry[] = new Berry[1000];
-    Scanner myScanner;
     static HarvestManagement myHarvestManager = new HarvestManagement();
     static ErrorMessages em = new ErrorMessages();
-    int counter = 0;
+    int counter;
 
-    public BerryManager() {
-        this.myScanner = new Scanner(System.in);
-    }
 
     /**
-     *
+     * displays berry menu
      */
     public void displayBerryMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n"
@@ -39,7 +43,7 @@ public class BerryManager {
     }
 
     /**
-     *
+     * lists all existing Berry objects
      */
     public void listBerries() {
         System.out.println("Berry index: ");
@@ -52,7 +56,8 @@ public class BerryManager {
     }
 
     /**
-     *
+     * asks user to choose berry through id which is supposed to be deleted
+     * deletes this berry 
      */
     public void deleteBerry() {
         System.out.println("Please choose berry id to delete berry: ");
@@ -73,7 +78,7 @@ public class BerryManager {
     }
 
     /**
-     *
+     * asks user to choose berry through id which is supposed to be updated
      */
     public void updateBerry() {
         System.out.println("Please choose berry id to update berry: ");
@@ -97,7 +102,8 @@ public class BerryManager {
     }
 
     /**
-     *
+     * creates a new berry through user input (species, colour, weight, taste)
+     * id is configured automatically
      */
     public void addBerry() {
         myBerry[counter] = new Berry(1, "", 0.0, "", "");
@@ -117,7 +123,7 @@ public class BerryManager {
     }
 
     /**
-     *
+     * displays choices user can make to update berry
      */
     private void displayBerryUpdateMenu() {
         System.out.println("BENNO’s Harvest-Management (Version 1.0 (C) 2020 by Group 1)\n\n"
@@ -132,7 +138,8 @@ public class BerryManager {
     }
 
     /**
-     *
+     * shows full selectBerryUpdate menu
+     * processes correct user input and forwards to choice made
      * @param index
      */
     private void selectBerryUpdate(int index) {
@@ -165,7 +172,8 @@ public class BerryManager {
     }
 
     /**
-     *
+     * reads user input and controls it
+     * if input equals null or is no letter, user is asked to correct input
      * @return
      */
     private String readUpdateInput() {
@@ -186,7 +194,9 @@ public class BerryManager {
     }
 
     /**
-     *
+     * reads user input and controls it
+     * if input cannot be converted into a double or input is smaller than zero or greater than 200,
+     * user is asked to correct input
      * @return
      */
     private double readDoubleUpdateInput() {
@@ -210,7 +220,8 @@ public class BerryManager {
     }
 
     /**
-     *
+     * reads user input and controls it
+     * if input equals null or is no letter, user is asked to correct input
      * @return
      */
     private String readAddInput() {

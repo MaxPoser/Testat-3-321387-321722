@@ -6,7 +6,7 @@
 package harvestManagement;
 
 /**
- * Initialization of sensetive variables/data for helper.
+ * 
  *
  * @author Sina Stumpp
  */
@@ -20,8 +20,6 @@ public class Helper {
     private static int counter = 1;
 
     /**
-     * Compiling confidental variables to biuld connection to getter/setter.
-     *
      * @param id
      * @param firstName
      * @param lastName
@@ -119,16 +117,7 @@ public class Helper {
     }
 
     /**
-     * returns current counter value.
-     *
-     * @return
-     */
-    public int getCounter() {
-        return counter;
-    }
-
-    /**
-     *
+     * String that is printed when myHelper[index] is printed
      * @return
      */
     public String toString() {
@@ -138,6 +127,4 @@ public class Helper {
 
     }
 }
-//toString is never used --> löschen?
-//Wenn nein --> Javadoc für toString
-//getCounter notwendig?
+
