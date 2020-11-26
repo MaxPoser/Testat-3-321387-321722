@@ -20,9 +20,8 @@ public class HelperManager {
         ErrorMessages em;
         Helper myHelper[];
         counter = 0;
-        
+
     }
-    
 
     Helper myHelper[] = new Helper[1000];
     static HarvestManagement myHarvestManager = new HarvestManagement();
@@ -59,7 +58,7 @@ public class HelperManager {
 
     /**
      * asks user to choose helper through id who is supposed to be deleted
-     * deletes this helper 
+     * deletes this helper
      */
     public void deleteHelper() {
         System.out.println("Please choose helper id to delete helper or enter 'exit' to return to the menu: ");
@@ -105,8 +104,8 @@ public class HelperManager {
     }
 
     /**
-     * creates a new helper through user input (first name, last name, gender, origin)
-     * id is configured automatically
+     * creates a new helper through user input (first name, last name, gender,
+     * origin) id is configured automatically
      */
     public void addHelper() {
         myHelper[counter] = new Helper(1, "", "", "", "");
@@ -142,8 +141,9 @@ public class HelperManager {
     }
 
     /**
-     * shows full selectHelperUpdate menu
-     * processes correct user input and forwards to choice made
+     * shows full selectHelperUpdate menu processes correct user input and
+     * forwards to choice made
+     *
      * @param index
      */
     private void selectHelperUpdate(int index) {
@@ -172,8 +172,8 @@ public class HelperManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input equals null or is no letter, user is asked to correct input
+     * reads user input and controls it if input equals null or is no letter,
+     * user is asked to correct input
      *
      * @return
      */
@@ -195,8 +195,9 @@ public class HelperManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input equals null or is no letter, user is asked to correct input
+     * reads user input and controls it if input equals null or is no letter,
+     * user is asked to correct input
+     *
      * @return
      */
     public String readAddInput() {
@@ -214,9 +215,9 @@ public class HelperManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input does not equal [Mm]ale,[Ff]emale, [Dd]iverse,
-     * user is asked to correct input
+     * reads user input and controls it if input does not equal
+     * [Mm]ale,[Ff]emale, [Dd]iverse, user is asked to correct input
+     *
      * @return
      */
     public String readGenderInput() {

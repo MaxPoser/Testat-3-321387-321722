@@ -117,6 +117,7 @@ public class Berry {
 
     /**
      * String that is printed when myBerry[index] is printed
+     *
      * @return
      */
     public String toString() {
@@ -126,5 +127,3 @@ public class Berry {
 
     }
 }
-
-

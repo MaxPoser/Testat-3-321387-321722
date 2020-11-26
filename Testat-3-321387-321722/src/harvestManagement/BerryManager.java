@@ -17,15 +17,13 @@ public class BerryManager {
         Berry myBerry[];
         HarvestManagement myHarvestManager;
         ErrorMessages em;
-        counter = 0;    
+        counter = 0;
     }
-    
 
     Berry myBerry[] = new Berry[1000];
     static HarvestManagement myHarvestManager = new HarvestManagement();
     static ErrorMessages em = new ErrorMessages();
     int counter;
-
 
     /**
      * displays berry menu
@@ -57,7 +55,7 @@ public class BerryManager {
 
     /**
      * asks user to choose berry through id which is supposed to be deleted
-     * deletes this berry 
+     * deletes this berry
      */
     public void deleteBerry() {
         System.out.println("Please choose berry id to delete berry: ");
@@ -138,8 +136,9 @@ public class BerryManager {
     }
 
     /**
-     * shows full selectBerryUpdate menu
-     * processes correct user input and forwards to choice made
+     * shows full selectBerryUpdate menu processes correct user input and
+     * forwards to choice made
+     *
      * @param index
      */
     private void selectBerryUpdate(int index) {
@@ -172,8 +171,9 @@ public class BerryManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input equals null or is no letter, user is asked to correct input
+     * reads user input and controls it if input equals null or is no letter,
+     * user is asked to correct input
+     *
      * @return
      */
     private String readUpdateInput() {
@@ -194,9 +194,10 @@ public class BerryManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input cannot be converted into a double or input is smaller than zero or greater than 200,
-     * user is asked to correct input
+     * reads user input and controls it if input cannot be converted into a
+     * double or input is smaller than zero or greater than 200, user is asked
+     * to correct input
+     *
      * @return
      */
     private double readDoubleUpdateInput() {
@@ -220,8 +221,9 @@ public class BerryManager {
     }
 
     /**
-     * reads user input and controls it
-     * if input equals null or is no letter, user is asked to correct input
+     * reads user input and controls it if input equals null or is no letter,
+     * user is asked to correct input
+     *
      * @return
      */
     private String readAddInput() {

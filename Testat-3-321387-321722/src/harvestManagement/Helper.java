@@ -6,7 +6,7 @@
 package harvestManagement;
 
 /**
- * 
+ *
  *
  * @author Sina Stumpp
  */
@@ -118,6 +118,7 @@ public class Helper {
 
     /**
      * String that is printed when myHelper[index] is printed
+     *
      * @return
      */
     public String toString() {
@@ -127,4 +128,3 @@ public class Helper {
 
     }
 }
-

@@ -12,50 +12,6 @@ package harvestManagement;
  */
 public class ErrorMessages {
 
-    /*
-    private String backMenu = ("Changes will not be saved. You will return to the menu. ");
-    private String existingID = ("Please choose an existing id. ");
-    private String backLastMenu = ("You will be brought back to the last menu. ");
-    private String inputNotValid = ("System input is not valid. ");
-    private String correctInput = ("Please correct input: ");
-    private String chooseOptions = ("Please choose one of the given options. ");
-
-    public ErrorMessages(String backMenu, String existingID, String backLastMenu, String inputNotValid, String correctInput, String chooseOptions) {//Hier stimmt was nicht. Muss hier jede Variable neu compiled werden?
-        this.backMenu = backMenu;
-        this.existingID = existingID;
-        this.backLastMenu = backLastMenu;
-        this.inputNotValid = inputNotValid;
-        this.correctInput = correctInput;
-        this.chooseOptions = chooseOptions;
-    }
-
-    public void getBackMenu() {
-        System.out.println(backMenu); //Print out hier?
-    }
-
-    public String getExistingID() {
-        return existingID;
-    }
-
-    public String getBackLastMenu() {
-        return backLastMenu;
-    }
-
-    public String getInputNotValid() {
-        return inputNotValid;
-    }
-
-    public String getCorrectInput() {
-        return correctInput;
-    }
-
-    public String getChooseOptions() {
-        return chooseOptions;
-    }
-    
-    
-    
-     */
     /**
      * states that user is brought back to menu.
      */
