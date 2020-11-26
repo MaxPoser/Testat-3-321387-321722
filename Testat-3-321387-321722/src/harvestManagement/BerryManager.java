@@ -147,18 +147,22 @@ public class BerryManager {
             case 4:
                 System.out.println("Please enter new taste now: ");
                 myBerry[index].setTaste(readUpdateInput());
+                System.out.println(myBerry[index]);
                 break;
             case 3:
                 System.out.println("Please enter new weight now: ");
                 myBerry[index].setWeight(readDoubleUpdateInput());
+                System.out.println(myBerry[index]);
                 break;
             case 2:
                 System.out.println("Please enter new color now: ");
                 myBerry[index].setColor(readUpdateInput());
+                System.out.println(myBerry[index]);
                 break;
             case 1:
                 System.out.println("Please enter new species now: ");
                 myBerry[index].setSpecies(readUpdateInput());
+                System.out.println(myBerry[index]);
                 break;
             case 0:
                 myHarvestManager.handleHelpers();

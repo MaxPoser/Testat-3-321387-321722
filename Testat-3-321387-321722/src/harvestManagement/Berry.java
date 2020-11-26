@@ -122,7 +122,7 @@ public class Berry {
      */
     public String toString() {
         String berry = "";
-        berry = "Berry:" + berryId + ", " + species + ", " + weight + ", " + color + ", " + taste;
+        berry = "Berry:" + berryId + ", " + species + ", " + weight + "g, " + color + ", " + taste;
         return berry;
 
     }

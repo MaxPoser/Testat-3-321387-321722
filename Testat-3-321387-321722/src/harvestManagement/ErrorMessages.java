@@ -54,25 +54,4 @@ public class ErrorMessages {
         System.out.println("Please choose one of the given options. ");
     }
 
-    /*
-            
-            
-    Helper Manager:
-    You will be brought back to the last menu.
-    System input is not valid.
-    Please correct input:
-    Please choose an existing helper id.
-    Please choose helper id to update helper or enter 'exit' to return to the menu:
-    Please choose helper id to delete helper or enter 'exit' to return to the menu:
-    
-    Berry Manager:
-    Changes will not be saved. You will return to the menu.
-    Please choose an existing berry id.
-    System input is not valid. Going back to main menu.
-    
-    Harvest Manager:
-    Please choose one of the given options.
-    System input is not valid. Going back to main menu.
-
-     */
 }

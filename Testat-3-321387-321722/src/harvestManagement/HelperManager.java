@@ -152,14 +152,17 @@ public class HelperManager {
             case 3:
                 System.out.println("Please enter new gender now: ");
                 myHelper[index].setGender(readGenderInput());
+                System.out.println(myHelper[index]);
                 break;
             case 2:
                 System.out.println("Please enter new last name now: ");
                 myHelper[index].setLastName(readUpdateInput());
+                System.out.println(myHelper[index]);
                 break;
             case 1:
                 System.out.println("Please enter new first name now: ");
                 myHelper[index].setFirstName(readUpdateInput());
+                System.out.println(myHelper[index]);
                 break;
             case 0:
                 myHarvestManager.handleHelpers();
