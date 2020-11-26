@@ -44,7 +44,8 @@ public class HarvestManagement {
     }
 
     /**
-     *
+     * shows full main menu
+     * processes correct user input and forward to choice made
      */
     public static void menuRun() {
         while (true) {
@@ -97,8 +98,8 @@ public class HarvestManagement {
     }
 
     /**
-     * shows full handleHelpers menu processes correct user input and forwards
-     * to choice made
+     * shows full handleHelpers menu 
+     * processes correct user input and forwards to choice made
      */
     public static void handleHelpers() {
         myHelperManager.displayHelperMenu();
@@ -128,8 +129,8 @@ public class HarvestManagement {
     }
 
     /**
-     * shows full handleBeriies menu processes correct user input and forwards
-     * to choice made
+     * shows full handleBerries menu 
+     * processes correct user input and forwards to choice made
      */
     public static void handleBerries() {
         myBerryManager.displayBerryMenu();

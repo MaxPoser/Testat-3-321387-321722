@@ -188,7 +188,7 @@ public class HelperManager {
             em.backLastMenu();
             myHarvestManager.handleHelpers();
         } else {
-            while (input == null || input.matches("[^a-zA-Z]")) {
+            while (input == null || input.matches("[^a-zA-Z]") || input.matches(".*\\d.*")) {
                 em.correctInput();
                 input = inputScanner.next();
                 input = input.trim();
@@ -208,7 +208,7 @@ public class HelperManager {
         String input = inputScanner.next();
         input.trim();
 
-        while (input == null || input.matches("[^a-zA-Z]")) {
+        while (input == null || input.matches("[^a-zA-Z]") || input.matches(".*\\d.*")) {
             em.correctInput();
             input = inputScanner.next();
             input = input.trim();
